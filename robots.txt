@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://tonepalette.com/sitemap.xml
+Sitemap: https://leam-tts-mcn.github.io/tonepalette-hp/sitemap.xml
