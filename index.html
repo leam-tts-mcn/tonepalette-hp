@@ -2358,19 +2358,19 @@
     <p class="section-lead rv d2">SNS運用に関するご相談・お見積もり依頼はこちら</p>
     <div class="form-wrap rv d2" style="text-align:left">
       <div class="form-grid">
-        <div class="field"><label for="t-company">会社名 *</label><input id="t-company" type="text"></div>
-        <div class="field"><label for="t-name">ご担当者名 *</label><input id="t-name" type="text"></div>
-        <div class="field"><label for="t-mail">メールアドレス *</label><input id="t-mail" type="email"></div>
-        <div class="field"><label for="t-tel">電話番号</label><input id="t-tel" type="tel"></div>
+        <div class="field"><label for="t-company">会社名 *</label><input id="t-company" name="会社名" type="text"></div>
+        <div class="field"><label for="t-name">ご担当者名 *</label><input id="t-name" name="ご担当者名" type="text"></div>
+        <div class="field"><label for="t-mail">メールアドレス *</label><input id="t-mail" name="email" type="email"></div>
+        <div class="field"><label for="t-tel">電話番号</label><input id="t-tel" name="電話番号" type="tel"></div>
         <div class="field full"><label for="t-type">お問い合わせ種別</label>
-          <select id="t-type">
+          <select id="t-type" name="お問い合わせ種別">
             <option>無料相談を希望する</option>
             <option>SNSアカウント運用について</option>
             <option>インフルエンサーマーケティングについて</option>
             <option>その他</option>
           </select>
         </div>
-        <div class="field full"><label for="t-msg">お問い合わせ内容 *</label><textarea id="t-msg" rows="6"></textarea></div>
+        <div class="field full"><label for="t-msg">お問い合わせ内容 *</label><textarea id="t-msg" name="お問い合わせ内容" rows="6"></textarea></div>
       </div>
       <div class="form-foot">
         <button class="btn solid" type="button" onclick="submitForm(this)">送信する <span class="arw">→</span></button>
@@ -2380,7 +2380,7 @@
         <div class="ok-ring">✓</div>
         <h3>ご入力を確認しました</h3>
         <p>お問い合わせありがとうございます。<br>最短翌営業日に、担当者よりご返信いたします。</p>
-        <div class="demo-note">※本サイトはデザイン案のため、実際の送信は行われていません（公開時にフォーム送信先を接続します）</div>
+        
         <button class="btn resend" type="button" onclick="resetForm(this)">別のお問い合わせを送る</button>
       </div>
     </div>
@@ -3097,19 +3097,19 @@
   <section>
     <div class="form-wrap" style="margin-top:0">
       <div class="form-grid">
-        <div class="field"><label for="c-company">会社名 *</label><input id="c-company" type="text"></div>
-        <div class="field"><label for="c-name">ご担当者名 *</label><input id="c-name" type="text"></div>
-        <div class="field"><label for="c-mail">メールアドレス *</label><input id="c-mail" type="email"></div>
-        <div class="field"><label for="c-tel">電話番号</label><input id="c-tel" type="tel"></div>
+        <div class="field"><label for="c-company">会社名 *</label><input id="c-company" name="会社名" type="text"></div>
+        <div class="field"><label for="c-name">ご担当者名 *</label><input id="c-name" name="ご担当者名" type="text"></div>
+        <div class="field"><label for="c-mail">メールアドレス *</label><input id="c-mail" name="email" type="email"></div>
+        <div class="field"><label for="c-tel">電話番号</label><input id="c-tel" name="電話番号" type="tel"></div>
         <div class="field full"><label for="c-type">お問い合わせ種別</label>
-          <select id="c-type">
+          <select id="c-type" name="お問い合わせ種別">
             <option>無料相談を希望する</option>
             <option>SNSアカウント運用について</option>
             <option>インフルエンサーマーケティングについて</option>
             <option>その他</option>
           </select>
         </div>
-        <div class="field full"><label for="c-msg">お問い合わせ内容 *</label><textarea id="c-msg" rows="7"></textarea></div>
+        <div class="field full"><label for="c-msg">お問い合わせ内容 *</label><textarea id="c-msg" name="お問い合わせ内容" rows="7"></textarea></div>
       </div>
       <div class="form-foot">
         <button class="btn solid" type="button" onclick="submitForm(this)">送信する <span class="arw">→</span></button>
@@ -3119,7 +3119,7 @@
         <div class="ok-ring">✓</div>
         <h3>ご入力を確認しました</h3>
         <p>お問い合わせありがとうございます。<br>最短翌営業日に、担当者よりご返信いたします。</p>
-        <div class="demo-note">※本サイトはデザイン案のため、実際の送信は行われていません（公開時にフォーム送信先を接続します）</div>
+        
         <button class="btn resend" type="button" onclick="resetForm(this)">別のお問い合わせを送る</button>
       </div>
     </div>
@@ -3233,8 +3233,21 @@
       if(bad){ok=false;if(!first)first=inp}
     });
     if(!ok){if(first)first.focus();return}
-    wrap.classList.add('sent');
-    wrap.scrollIntoView({behavior:'smooth',block:'center'});
+    btn.disabled=true;btn.textContent='送信中…';
+    var data={_subject:'【tonepalette.com】お問い合わせ',_template:'table',_captcha:'false'};
+    wrap.querySelectorAll('input,textarea,select').forEach(function(i){if(i.name)data[i.name]=i.value});
+    fetch('https://formsubmit.co/ajax/tsubasa_ezaki@tonepalette.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    }).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(){
+      wrap.classList.add('sent');
+      wrap.scrollIntoView({behavior:'smooth',block:'center'});
+    }).catch(function(){
+      alert('送信に失敗しました。お手数ですが tsubasa_ezaki@tonepalette.com まで直接ご連絡ください。');
+    }).finally(function(){
+      btn.disabled=false;btn.innerHTML='送信する <span class="arw">&#8594;</span>';
+    });
   }
   document.addEventListener('input',function(e){var f=e.target.closest&&e.target.closest('.field');if(f)f.classList.remove('err')});
   function resetForm(btn){
