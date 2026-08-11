@@ -3234,7 +3234,7 @@
     });
     if(!ok){if(first)first.focus();return}
     btn.disabled=true;btn.textContent='送信中…';
-    var data={_subject:'【tonepalette.com】お問い合わせ',_template:'table',_captcha:'false'};
+    var data={_subject:'【tonepalette.com】お問い合わせ',_template:'table',_captcha:'false',_cc:'riku_kinjo@tonepalette.com'};
     wrap.querySelectorAll('input,textarea,select').forEach(function(i){if(i.name)data[i.name]=i.value});
     fetch('https://formsubmit.co/ajax/tsubasa_ezaki@tonepalette.com',{
       method:'POST',
