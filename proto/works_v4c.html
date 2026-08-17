@@ -1,0 +1,228 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WORKS リニューアル案 v4C（iPhoneショーケース型）｜TONE PALETTE</title>
+<style>
+:root{--bg1:#0E2027;--bg2:#16323C;--bg3:#1D3D4A;--ink:#F2F5F5;--dim:rgba(242,245,245,.66);--faint:rgba(242,245,245,.4);--teal:#7FA08C;--steel:#2E5666;--line:rgba(255,255,255,.12);--en:"Avenir Next","Helvetica Neue",sans-serif;--shell:1140px}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));background-attachment:fixed;color:var(--ink);font-family:"Avenir Next","Helvetica Neue","Hiragino Sans","Hiragino Kaku Gothic ProN",-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.8;overflow-x:hidden}
+.wrap{max-width:var(--shell);margin:0 auto;padding:0 max(24px,4vw)}
+.hero{padding:96px 0 30px;text-align:center}
+.hero .eb{font-family:var(--en);font-size:11px;font-weight:800;letter-spacing:.32em;color:var(--teal)}
+.hero h1{font-size:clamp(30px,4.4vw,46px);margin:14px 0 12px}
+.hero p{margin:0 auto;font-size:14px;color:var(--dim);max-width:38em}
+.sp{display:none}@media(max-width:700px){.sp{display:inline}}
+.stage{display:flex;justify-content:center;align-items:flex-end;gap:0;padding:54px 20px 0;max-width:980px;margin:0 auto;overflow:hidden}
+.stage img{border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.45);display:block}
+.stage .s1{width:min(30vw,270px);transform:rotate(-7deg) translateY(16px);z-index:1}
+.stage .s2{width:min(34vw,320px);z-index:3;margin:0 -28px;animation:bob 7s ease-in-out infinite}
+.stage .s3{width:min(30vw,280px);transform:rotate(7deg) translateY(22px);z-index:2;animation:bob 8s ease-in-out 1.2s infinite}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.stagecap{text-align:center;font-size:11px;color:var(--faint);padding:26px 0 0}
+.chap{padding:110px 0 0}
+.cgrid{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:min(70px,6vw);align-items:start}
+@media(max-width:960px){.cgrid{grid-template-columns:1fr}.cgrid .pcol{order:2;margin-top:30px}}
+.pcol{position:sticky;top:60px;text-align:center}
+.pcol img{width:100%;max-width:400px;border-radius:18px;box-shadow:0 28px 64px rgba(0,0,0,.42);display:block;margin:0 auto}
+.slot{width:230px;aspect-ratio:9/18;margin:0 auto;border-radius:36px;border:2px dashed rgba(255,255,255,.3);background:rgba(255,255,255,.04);position:relative;display:flex;align-items:center;justify-content:center}
+.slot:before{content:"";position:absolute;top:13px;left:50%;transform:translateX(-50%);width:78px;height:20px;border-radius:12px;background:rgba(255,255,255,.14)}
+.slot p{font-size:10.5px;font-weight:700;color:var(--faint);line-height:2;margin:0;padding:0 20px;text-align:center}
+.cno{font-family:var(--en);font-size:11px;font-weight:800;letter-spacing:.24em;color:var(--teal)}
+.chap h2{font-size:clamp(21px,2.5vw,30px);margin:12px 0 4px}
+.cat{font-size:12.5px;color:var(--dim);margin:0 0 26px}
+.mega{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:22px 0 6px}
+.mega b{font-family:var(--en);font-size:clamp(52px,7.5vw,88px);font-weight:700;line-height:.9;letter-spacing:-.03em;color:#fff}
+.mega em{font-style:normal;font-size:24px;font-weight:700}
+.mega i{font-style:normal;font-size:12px;font-weight:700;color:var(--dim);letter-spacing:.05em}
+.tr{font-size:12px;color:var(--faint);margin:0 0 26px}
+.pss{display:flex;flex-direction:column;gap:15px;margin:26px 0 0}
+.pss>div{display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:baseline;opacity:0;transform:translateY(16px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.pss>div:nth-child(2){transition-delay:.12s}.pss>div:nth-child(3){transition-delay:.24s}
+.pss.in>div{opacity:1;transform:none}
+.pss i{font-style:normal;font-size:10.5px;font-weight:800;color:#0E2027;background:rgba(255,255,255,.85);border-radius:6px;text-align:center;padding:3px 0;letter-spacing:.08em}
+.pss>div:nth-child(3) i{background:var(--teal);color:#0E2027}
+.pss p{margin:0;font-size:13.5px;line-height:1.95;color:rgba(242,245,245,.85)}
+.pss p b{color:#fff;border-bottom:2px solid rgba(127,160,140,.55)}
+.plinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.plinks a{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 16px;transition:.3s}
+.plinks a:hover{background:#fff;color:#16323C;border-color:#fff}
+.plinks a:after{content:"\2197";font-size:11px}
+.chartbox{background:#FAFAF9;color:#101C22;border-radius:18px;padding:30px 34px;margin-top:34px;box-shadow:0 24px 54px rgba(0,0,0,.3)}
+.chartbox h4{margin:0 0 4px;font-size:16px}
+.chartbox .sub{margin:0 0 22px;font-size:12px;color:rgba(16,28,34,.55)}
+.pcrow{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;margin-bottom:16px}
+.pclab{font-size:11.5px;font-weight:700;color:rgba(16,28,34,.75);text-align:right;line-height:1.5}
+.pclab small{display:block;font-weight:600;font-size:10px;color:rgba(16,28,34,.45)}
+.pctrack{position:relative;height:32px;background:rgba(22,50,60,.06);border-radius:7px}
+.pcbar{position:absolute;top:0;height:100%;border-radius:7px;width:0;left:var(--l,0%);transition:width 1.4s cubic-bezier(.2,.7,.2,1) .25s}
+.chartbox.in .pcbar{width:var(--w)}
+.pcbar.tp{background:linear-gradient(90deg,#2E5666,#7FA08C);min-width:9px;box-shadow:0 0 0 4px rgba(127,160,140,.25)}
+.pcbar.ad{background:#C9D2D6}
+.pcval{position:absolute;top:50%;transform:translateY(-50%);left:calc(var(--l,0%) + var(--w) + 10px);font-family:var(--en);font-size:12px;font-weight:800;color:#16323C;white-space:nowrap;opacity:0;transition:opacity .5s 1.5s}
+.pcval.ins{left:auto;right:14px}
+.chartbox.in .pcval{opacity:1}
+.pcax{display:flex;justify-content:space-between;font-family:var(--en);font-size:10px;color:rgba(16,28,34,.4);margin:4px 0 0 164px}
+.xnote{font-size:10.5px;color:rgba(16,28,34,.45);margin-top:16px;line-height:1.8}
+@media(max-width:900px){.pcrow{grid-template-columns:96px 1fr}.pcax{margin-left:110px}.pclab small{display:none}.chartbox{padding:22px 20px}}
+.gal{padding:120px 0 80px}
+.sec-h{text-align:center}
+.sec-h .eb{font-family:var(--en);font-size:10.5px;font-weight:800;letter-spacing:.28em;color:var(--teal)}
+.sec-h h2{font-size:clamp(21px,2.5vw,29px);margin:12px 0 8px}
+.sec-h p{margin:0;font-size:13px;color:var(--dim)}
+.gtabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:30px}
+.gtabs button{font-size:12px;font-weight:700;font-family:inherit;color:var(--dim);background:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 18px;cursor:pointer;transition:.3s}
+.gtabs button.on{background:#fff;border-color:#fff;color:#16323C}
+.ggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 20px;margin-top:38px}
+@media(max-width:960px){.ggrid{grid-template-columns:repeat(2,1fr)}}
+.mini{display:block;text-decoration:none;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.mini:hover{transform:translateY(-7px)}
+.bezel{display:block;position:relative;border-radius:30px;background:#0A1216;padding:9px;box-shadow:0 18px 44px rgba(0,0,0,.4),inset 0 0 0 1.5px rgba(255,255,255,.14)}
+.bezel:after{content:"";position:absolute;top:16px;left:50%;transform:translateX(-50%);width:56px;height:15px;border-radius:9px;background:#0A1216;z-index:5;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.scr{display:block;position:relative;border-radius:22px;overflow:hidden;aspect-ratio:9/17;background:linear-gradient(170deg,#22434F,#152B33)}
+.scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scr .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center}
+.scr .play:before{content:"";border-style:solid;border-width:7px 0 7px 12px;border-color:transparent transparent transparent #16323C;margin-left:3px}
+.scr .phl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:rgba(255,255,255,.75);font-size:11px;font-weight:700;padding:0 16px;line-height:1.7}
+.mini .ml{display:block;text-align:center;margin-top:12px;color:var(--ink);font-size:11.5px;font-weight:700;line-height:1.55}
+.mini .ml small{display:block;font-family:var(--en);font-size:9px;font-weight:800;letter-spacing:.14em;color:var(--faint);margin-bottom:2px}
+.gmore2{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1.5px dashed rgba(255,255,255,.3);border-radius:30px;aspect-ratio:9/17;color:var(--dim);font-weight:700;font-size:12px;text-align:center}
+.gmore2 b{font-family:var(--en);font-size:24px;color:#fff}
+.vswitch{position:fixed;right:14px;bottom:14px;z-index:60;display:flex;gap:5px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 8px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.vswitch a{font-family:var(--en);font-size:11px;font-weight:800;color:rgba(22,50,60,.55);text-decoration:none;min-width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.vswitch a.cur{background:#16323C;color:#fff}
+.ftr{text-align:center;padding:40px 0 48px;font-size:10.5px;color:var(--faint);font-family:var(--en);letter-spacing:.12em}
+</style></head><body>
+
+<div class="hero"><div class="wrap">
+<span class="eb">WORKS</span>
+<h1>実機の中に、<br class="sp">実績がある。</h1>
+<p>実際のアカウント・実際の投稿。スマートフォンの画面のまま、当社の仕事をご覧ください。</p>
+</div></div>
+
+<div class="stage">
+ <img class="s1" src="assets/phone_lapone.jpg" alt="コラボ景品シリーズ 公式Instagramグリッド" loading="eager">
+ <img class="s2" src="assets/phones_bk.jpg" alt="BELLKISH TOKYO 公式Instagram" loading="eager">
+ <img class="s3" src="assets/phones_uru.jpg" alt="うるちゅるポップシール 公式Instagram投稿" loading="eager">
+</div>
+<p class="stagecap">すべて実際の公式アカウントのスクリーンショットです</p>
+
+<div class="wrap" id="cases">
+
+<div class="chap">
+ <div class="cgrid">
+  <div class="pcol"><div class="slot"><p>公式 × インフルエンサー<br>組み合わせビジュアル<br><span style="font-family:var(--en);font-size:9px;letter-spacing:.12em;opacity:.7">COMING SOON</span></p></div></div>
+  <div>
+   <span class="cno">CASE 01</span><h2>株式会社シン・コーポレーション 様</h2><p class="cat">カラオケBanBan／全国400店舗超・記念キャンペーン</p>
+   <div class="mega"><b>3,229</b><em>万</em><i>総再生（3施策）</i></div>
+   <p class="tr">日本人の4人に1人が1回見た計算</p>
+   <div class="pss">
+    <div><i>課題</i><p>宣伝がLP・店頭中心で、SNSでの話題化の打ち手が不足していた。</p></div>
+    <div><i>施策</i><p>企画から逆算してジャンルを選定し、マイクロ〜ミドル層のインフルエンサー<b>24名を3施策で分散起用</b>。当たりが連鎖する設計に。</p></div>
+    <div><i>成果</i><p>計<b>3,229万再生</b>・100万再生超の動画7本。長野県では商圏特化のローカル型も実証。</p></div>
+   </div>
+   <div class="chartbox">
+    <h4>100万再生の獲得にかかる費用（試算）</h4>
+    <p class="sub">実測の内訳：施策① 0.09円／施策② 0.14円（3施策合計 約3,229万再生）</p>
+    <div class="pcrow"><span class="pclab">インフルエンサー施策<small>当社実測・平均0.11円/再生</small></span><div class="pctrack"><div class="pcbar tp" style="--l:0%;--w:1.4%"></div><span class="pcval" style="--l:0%;--w:1.4%">約11万円</span></div></div>
+    <div class="pcrow"><span class="pclab">TikTok広告<small>CPV目安 1〜5円</small></span><div class="pctrack"><div class="pcbar ad" style="--l:10%;--w:40%"></div><span class="pcval" style="--l:10%;--w:40%">100万〜500万円</span></div></div>
+    <div class="pcrow"><span class="pclab">Instagram動画広告<small>CPV目安 3〜10円</small></span><div class="pctrack"><div class="pcbar ad" style="--l:30%;--w:64%"></div><span class="pcval ins">300万〜1,000万円</span></div></div>
+    <div class="pcax"><span>0円</span><span>500万円</span><span>1,000万円</span></div>
+    <p class="xnote">※広告CPVは各媒体の視聴課金定義（6秒/15秒視聴等）に基づく公開目安値（StockSun・インフィニティエージェント調べ・2026年）。課金・計測の定義が異なるため厳密な同一条件比較ではありません。インフルエンサー施策の再生はオーガニックのため配信量の保証はありません。</p>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="chap">
+ <div class="cgrid">
+  <div class="pcol"><img src="assets/phones_uru.jpg" alt="うるちゅるポップシール 公式Instagram投稿" loading="lazy"></div>
+  <div>
+   <span class="cno">CASE 02</span><h2>GiGO 様「うるちゅるポップシール」</h2><p class="cat">アミューズメント／公式アカウント × インフルエンサーの相互連動</p>
+   <div class="mega"><b>176.8</b><em>万</em><i>第3弾 総再生（約）</i></div>
+   <p class="tr">3期連続でリピート、エリア店舗（浦和美園）にも拡大</p>
+   <div class="pss">
+    <div><i>課題</i><p>新商品。公式発信だけでは接触できる層に限界があった。</p></div>
+    <div><i>施策</i><p>公式アカウントで話題の起点をつくり、インフルエンサーの拡散で認知を最大化する<b>相互連動</b>を設計。伸びたインフルエンサーは次弾で継続起用。</p></div>
+    <div><i>成果</i><p>第3弾は合計<b>約176.8万再生</b>。当社制作の公式リールは単体で33.9万再生。</p></div>
+   </div>
+   <div class="plinks"><a href="https://www.instagram.com/p/DTuuPc7AGdl/" target="_blank" rel="noopener" data-ig="DTuuPc7AGdl">登場決定リールを見る</a><a href="https://www.instagram.com/p/DXbno6ToLkV/" target="_blank" rel="noopener" data-ig="DXbno6ToLkV">第3弾 商品紹介を見る</a></div>
+  </div>
+ </div>
+</div>
+
+<div class="chap">
+ <div class="cgrid">
+  <div class="pcol"><img style="max-width:340px" src="assets/phone_lapone.jpg" alt="コラボ景品シリーズ 公式Instagramグリッド" loading="lazy"></div>
+  <div>
+   <span class="cno">CASE 03</span><h2>GiGO 様 × LAPONE 様</h2><p class="cat">IPコラボ／アーティストコラボ景品のプロデュース</p>
+   <div class="mega"><b>282</b><em>万</em><i>インプレッション</i></div>
+   <p class="tr">広告費0円のオーガニック投稿だけで282万回の露出</p>
+   <div class="pss">
+    <div><i>課題</i><p>コラボの話題を、広告に頼らずに最大化したい。</p></div>
+    <div><i>施策</i><p>企画のプロデュースと<b>オーガニック投稿の設計だけ</b>で到達をつくる。アーティストごとに世界観を作り分け、ファンが自ら拡散したくなる構成に。</p></div>
+    <div><i>成果</i><p><b>282万インプレッション</b>・100万人超リーチ。</p></div>
+   </div>
+   <div class="plinks"><a href="https://www.instagram.com/p/DR69WEYj7Nb/" target="_blank" rel="noopener" data-ig="DR69WEYj7Nb">コラボ景品紹介 ①</a><a href="https://www.instagram.com/p/DTP5mojjXO4/" target="_blank" rel="noopener" data-ig="DTP5mojjXO4">コラボ景品紹介 ②</a></div>
+  </div>
+ </div>
+</div>
+
+<div class="chap">
+ <div class="cgrid">
+  <div class="pcol"><img src="assets/phones_bk.jpg" alt="BELLKISH TOKYO 公式Instagram" loading="lazy"></div>
+  <div>
+   <span class="cno">CASE 04</span><h2>BELLKISH TOKYO 様（渋谷）</h2><p class="cat">シーシャカフェ／新規アカウント立ち上げ</p>
+   <div class="mega"><b>300</b><em>万</em><i>リーチ / 運用開始1ヶ月</i></div>
+   <p class="tr">300万人は、渋谷区の人口（約23万人）の13倍</p>
+   <div class="pss">
+    <div><i>課題</i><p>OPEN前で露出はゼロ。渋谷区内に競合シーシャ店舗が40店舗超。</p></div>
+    <div><i>施策</i><p>エリア特性と競合状況から独自ポジションを設計。OPEN前から"行ってみたい"をつくるコンテンツ設計でアカウントを走らせた。</p></div>
+    <div><i>成果</i><p>1ヶ月で<b>フォロワー0→7,000人超</b>。渋谷区シーシャカフェアカウントNo.1。</p></div>
+   </div>
+   <div class="plinks"><a href="https://www.instagram.com/bellkishtokyo_shibuya/" target="_blank" rel="noopener">@bellkishtokyo_shibuya</a><a href="https://www.instagram.com/reel/DPGpmOhkvTF/" target="_blank" rel="noopener" data-ig="DPGpmOhkvTF">オープン期のリールを見る</a></div>
+  </div>
+ </div>
+</div>
+
+</div>
+
+<div class="gal wrap" id="gallery">
+<div class="sec-h"><span class="eb">CREATIVE GALLERY</span><h2>制作クリエイティブ</h2><p>企画・撮影・編集まで一貫制作した実物（全58件・順次追加）</p></div>
+<div class="gtabs"><button class="on" data-cat="all">すべて</button><button data-cat="ip">IPコラボ</button><button data-cat="uru">うるちゅる</button><button data-cat="shop">店舗・施設</button><button data-cat="beauty">ビューティー</button></div>
+<div class="ggrid">
+ <a class="mini" data-cat="ip" data-ig="DbFF-zFllMx" href="https://www.instagram.com/p/DbFF-zFllMx/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DbFF-zFllMx.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>海外映画IPコラボ景品</span></a>
+ <a class="mini" data-cat="ip" data-ig="DbSnpXYgb6y" href="https://www.instagram.com/p/DbSnpXYgb6y/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DbSnpXYgb6y.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>海外キャラクターIPコラボ景品</span></a>
+ <a class="mini" data-cat="ip" data-ig="DWWF9hUzNWe" href="https://www.instagram.com/reel/DWWF9hUzNWe/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DWWF9hUzNWe.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>人気恋愛番組コラボ企画</span></a>
+ <a class="mini" data-cat="ip" data-ig="DbvBig8lErL" href="https://www.instagram.com/p/DbvBig8lErL/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DbvBig8lErL.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="mini" data-cat="ip" data-ig="DXl6i0niCjD" href="https://www.instagram.com/reel/DXl6i0niCjD/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DXl6i0niCjD.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>海外キャラクターIPコラボ景品</span></a>
+ <a class="mini" data-cat="ip" data-ig="DbVKujNnJbR" href="https://www.instagram.com/p/DbVKujNnJbR/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DbVKujNnJbR.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
+ <a class="mini" data-cat="ip" data-ig="DbxfkrcDNo0" href="https://www.instagram.com/p/DbxfkrcDNo0/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><img src="assets/ip_DbxfkrcDNo0.jpg" alt="" loading="lazy"><span class="play"></span></span></span><span class="ml"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="mini" data-cat="uru" data-ig="DTuuPc7AGdl" href="https://www.instagram.com/p/DTuuPc7AGdl/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><span class="phl">うるちゅる<br>ポップシール<span class="play" style="position:static;transform:none"></span></span></span></span><span class="ml"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="mini" data-cat="uru" data-ig="DXbno6ToLkV" href="https://www.instagram.com/p/DXbno6ToLkV/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><span class="phl">うるちゅる<br>第3弾<span class="play" style="position:static;transform:none"></span></span></span></span><span class="ml"><small>GiGO 様</small>うるちゅるポップシール 第3弾</span></a>
+ <a class="mini" data-cat="ip" data-ig="DTP5mojjXO4" href="https://www.instagram.com/p/DTP5mojjXO4/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><span class="phl">コラボ景品<br>シリーズ<span class="play" style="position:static;transform:none"></span></span></span></span><span class="ml"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
+ <a class="mini" data-cat="shop" data-ig="DPGpmOhkvTF" href="https://www.instagram.com/reel/DPGpmOhkvTF/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><span class="phl">公式アカウント<br>運用<span class="play" style="position:static;transform:none"></span></span></span></span><span class="ml"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="mini" data-cat="beauty" data-ig="DYrbs0cNHqL" href="https://www.instagram.com/reel/DYrbs0cNHqL/" target="_blank" rel="noopener"><span class="bezel"><span class="scr"><span class="phl">公式アカウント<br>運用<span class="play" style="position:static;transform:none"></span></span></span></span><span class="ml"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <div class="gmore2" data-cat="all"><b>58</b>WORKS<br><span style="font-size:10.5px;font-weight:600">順次追加中</span></div>
+</div>
+</div>
+
+<div class="ftr">DESIGN PROTOTYPE v4C</div>
+<nav class="vswitch"><a href="works.html">v3</a><a href="works_v4a.html">A</a><a href="works_v4b.html">B</a><a class="cur" href="works_v4c.html">C</a></nav>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.pss,.chartbox').forEach(function(el){io.observe(el)});
+document.querySelectorAll('.gtabs button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelector('.gtabs .on').classList.remove('on');b.classList.add('on');var c=b.dataset.cat;
+  document.querySelectorAll('.ggrid [data-cat]').forEach(function(g){g.style.display=(c==='all'||g.dataset.cat===c)?'':'none'});
+})});
+/* Phase 2（GENDA広報許可後）: trueにすると data-ig 付きカードがInstagram公式埋め込み（oEmbed）に切り替わる */
+var PHASE2_EMBED=false;
+if(PHASE2_EMBED){
+  var es=document.createElement('script');es.async=true;es.src='https://www.instagram.com/embed.js';document.body.appendChild(es);
+  document.querySelectorAll('a.mini[data-ig]').forEach(function(a){
+    var d=document.createElement('div');
+    d.innerHTML='<blockquote class="instagram-media" data-instgrm-permalink="'+a.href+'" data-instgrm-version="14" style="margin:0;border:0;width:100%"></blockquote>';
+    a.replaceWith(d);
+  });
+}
+</script>
+</body></html>
