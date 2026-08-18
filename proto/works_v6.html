@@ -324,6 +324,45 @@ img{max-width:100%}
 .gsec .gmore{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1.5px dashed rgba(22,50,60,.28);border-radius:14px;aspect-ratio:9/14;color:rgba(16,28,34,.5);font-weight:700;font-size:12px;text-align:center}
 .raise{text-align:center;padding:74px 0 0;background:#F7F8F7}
 .raise .eb{font-family:var(--en);font-size:10px;font-weight:800;letter-spacing:.34em;color:#2E5666}
+
+/* ===== v6: 投稿モーダル（クリックでInstagram公式埋め込みを再生） ===== */
+#igmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(8,16,20,.82);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s}
+#igmodal.on{display:flex}
+#igmodal.show{opacity:1}
+#igmodal .mbox{position:relative;width:min(400px,94vw);max-height:92vh;overflow:auto;border-radius:18px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.5);transform:translateY(14px) scale(.98);transition:transform .38s cubic-bezier(.16,1,.3,1)}
+#igmodal.show .mbox{transform:none}
+#igmodal .mload{padding:46px 20px;text-align:center;font-size:12px;color:rgba(16,28,34,.5)}
+#igmodal .mclose{position:absolute;top:-42px;right:0;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:17px;line-height:1;cursor:pointer}
+#igmodal .mclose:hover{background:rgba(255,255,255,.3)}
+#igmodal .mopen{display:block;text-align:center;padding:12px;font-size:11.5px;font-weight:700;color:#16323C;text-decoration:none;border-top:1px solid rgba(22,50,60,.1)}
+#igmodal blockquote{margin:0 !important;border:0 !important;width:100% !important;min-width:0 !important}
+@media(max-width:700px){#igmodal{padding:56px 12px 12px}#igmodal .mclose{top:-40px}}
+
+/* ===== v6: 費用対効果チャート（3,229万再生ベース・資料P6と同型） ===== */
+.cmp2{margin-top:8px}
+.cmhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:9px}
+.cmt{font-size:13px;font-weight:800;color:var(--ink)}
+.cmt em{font-style:normal;font-family:var(--en);font-size:9.5px;font-weight:800;letter-spacing:.14em;color:#fff;background:#2E5666;border-radius:100px;padding:3px 9px;margin-left:9px;vertical-align:2px}
+.cmrow:last-child .cmt em{background:rgba(22,50,60,.32)}
+.cmpill{font-size:11.5px;font-weight:700;color:rgba(16,28,34,.6);background:rgba(22,50,60,.05);border-radius:100px;padding:5px 12px;white-space:nowrap}
+.cmpill b{font-family:var(--en);font-size:14px;color:var(--deep);margin:0 2px}
+.cmpill.tp{background:rgba(127,160,140,.16);color:#2E5666}
+.cmtrack{position:relative;height:38px;background:rgba(22,50,60,.05);border-radius:9px;overflow:hidden}
+.cmbar{position:absolute;left:0;top:0;height:100%;width:0;border-radius:9px;transition:width 1.5s cubic-bezier(.2,.7,.2,1) .3s}
+.cmbar.tp{background:linear-gradient(90deg,#2E5666,#7FA08C);box-shadow:0 0 0 3px rgba(127,160,140,.22)}
+.cmbar.ad{background:repeating-linear-gradient(115deg,#C9D2D6 0 9px,#D6DEE1 9px 18px)}
+.chartbox.in .cmbar.tp{width:3.2%;min-width:12px}
+.chartbox.in .cmbar.ad{width:100%}
+.cmval{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-family:var(--en);font-size:13.5px;font-weight:800;color:var(--deep);opacity:0;transition:opacity .5s 1.5s}
+.chartbox.in .cmval{opacity:1}
+.cmsub{margin:8px 0 0;font-size:11px;color:rgba(16,28,34,.5)}
+.cmbadge{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px 0;padding:12px;border-radius:12px;background:linear-gradient(120deg,rgba(46,86,102,.07),rgba(127,160,140,.13));opacity:0;transform:scale(.96);transition:opacity .6s ease 1.7s,transform .6s cubic-bezier(.3,1.4,.4,1) 1.7s}
+.chartbox.in .cmbadge{opacity:1;transform:none}
+.cmbadge span{font-size:12px;font-weight:700;color:rgba(16,28,34,.6)}
+.cmbadge b{font-family:var(--en);font-size:26px;font-weight:800;color:var(--deep);letter-spacing:-.01em}
+.gsec .gcount{font-family:var(--en);font-size:11px;font-weight:800;letter-spacing:.14em;color:rgba(16,28,34,.45);margin:6px 0 0}
+@media(max-width:700px){.cmhead{gap:6px}.cmt{font-size:12.5px}.cmbadge b{font-size:22px}}
+@media (prefers-reduced-motion:reduce){.cmbadge{opacity:1;transform:none}.cmval{opacity:1}}
 </style></head><body>
 
 <!-- ===== HERO ===== -->
@@ -332,7 +371,7 @@ img{max-width:100%}
  <div class="wrap rv">
   <span class="c-kicker">WORKS</span>
   <div class="tw"><h1 class="c-type">実績は、実物でご覧ください。</h1></div>
-  <p class="hero-sub">実際のアカウントと投稿で、当社の仕事をご覧ください。</p>
+  <p class="hero-sub">実際のアカウント・投稿・数値を、そのまま公開しています。</p>
   <div class="hero-anchors"><a href="#cases">第1部 導入実績</a><a href="#gallery">第2部 制作クリエイティブ</a></div>
  </div>
  <div class="cue"><span></span></div>
@@ -364,13 +403,22 @@ img{max-width:100%}
 <div class="schemewrap rv dk"><p class="sch-k">SCHEME ─ 施策の全体像</p><div class="scheme"><div class="snode"><span class="schip"><img src="assets/logo_banban.jpg" alt="カラオケBanBan"></span><span class="nl">株式会社<br>シン・コーポレーション 様<small>全国400店舗超</small></span></div><div class="sarrow"><span class="al">企画・逆算設計</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="schip hub"><b>TONE PALETTE</b><span class="sch-dots"><i></i><i></i><i></i><i></i></span></span><span class="nl">企画・選定・品質管理<small>成果データを一元管理</small></span></div><div class="sarrow"><span class="al">24名を分散起用</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="ifclu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><span class="more">×24</span></span><span class="nl">インフルエンサー<small>マイクロ〜ミドル層</small></span></div><div class="sarrow"><span class="al">投稿</span><span class="fd"></span></div><div class="snode"><span class="pfrow"><span class="pfc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle class="igdot" cx="17.2" cy="6.8" r="1.3"/></svg>Instagram</span><span class="pfc">TikTok</span></span><span class="nl">プラットフォーム</span></div><div class="sarrow"><span class="al">拡散</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="sreach"><b>3,229万</b><span>再生 ─ 生活者へ</span></span><span class="nl">日本人の4人に1人が<br>1回見た計算</span></div></div></div>
   <div class="duo">
    <div class="chartbox rv">
-    <h4>100万再生の獲得にかかる費用（試算）</h4>
-    <p class="sub">実測の内訳：施策① 0.09円／施策② 0.14円（3施策合計 約3,229万再生）</p>
-    <div class="pcrow"><span class="pclab">インフルエンサー施策<small>当社実測・平均0.11円/再生</small></span><div class="pctrack"><div class="pcbar tp" style="--l:0%;--w:1.4%"></div><span class="pcval" style="--l:0%;--w:1.4%">約11万円</span></div></div>
-    <div class="pcrow"><span class="pclab">TikTok広告<small>CPV目安 1〜5円</small></span><div class="pctrack"><div class="pcbar ad" style="--l:10%;--w:40%"></div><span class="pcval" style="--l:10%;--w:40%">100万〜500万円</span></div></div>
-    <div class="pcrow"><span class="pclab">Instagram動画広告<small>CPV目安 3〜10円</small></span><div class="pctrack"><div class="pcbar ad" style="--l:30%;--w:64%"></div><span class="pcval ins">300万〜1,000万円</span></div></div>
-    <div class="pcax"><span>0円</span><span>500万円</span><span>1,000万円</span></div>
-    <p class="xnote">※広告CPVは各媒体の視聴課金定義（6秒/15秒視聴等）に基づく公開目安値（StockSun・インフィニティエージェント調べ・2026年）。課金・計測の定義が異なるため厳密な同一条件比較ではありません。インフルエンサー施策の再生はオーガニックのため配信量の保証はありません。</p>
+    <h4>同じ3,229万再生を、広告で獲得したら</h4>
+    <p class="sub">当社が実際に配信した3施策の実測値と、同じ再生数を広告で買った場合の試算</p>
+    <div class="cmp2">
+     <div class="cmrow">
+      <div class="cmhead"><span class="cmt">インフルエンサー施策<em>実施済み</em></span><span class="cmpill tp">1再生あたり <b>0.11円</b>（実測）</span></div>
+      <div class="cmtrack"><div class="cmbar tp"></div></div>
+      <p class="cmsub">3施策合計 3,229万再生／100万再生超の動画7本／起用24名</p>
+     </div>
+     <div class="cmbadge"><span>広告で同じ再生数を買うと</span><b>8.8倍 〜 88倍</b></div>
+     <div class="cmrow">
+      <div class="cmhead"><span class="cmt">SNS広告で獲得した場合<em>試算</em></span><span class="cmpill ad">1再生あたり <b>1〜10円</b></span></div>
+      <div class="cmtrack"><div class="cmbar ad"></div><span class="cmval">3,229万 〜 3.2億円</span></div>
+      <p class="cmsub">TikTok 1〜5円／Instagram 3〜10円（公開CPV目安）</p>
+     </div>
+    </div>
+    <p class="xnote">※広告費＝公開CPV目安×3,229万再生で試算（TikTok 1〜5円/回・Instagram 3〜10円/回）。広告CPVは各媒体の視聴課金定義（6秒/15秒視聴等）に基づく公開目安値（StockSun・インフィニティエージェント調べ・2026年）。課金・計測の定義が異なるため厳密な同一条件比較ではありません。インフルエンサー施策の再生はオーガニックのため配信量の保証はありません。単価は3施策合計の実測値です。</p>
    </div>
    <div class="slotwrap rv"><div class="slot"><p>公式 × インフルエンサー<br>組み合わせビジュアル<br><span class="en">COMING SOON</span></p></div></div>
   </div>
@@ -384,7 +432,7 @@ img{max-width:100%}
   <div class="shead rv">
    <span class="c-kicker">CASE 02 ─ GIGO "URUCHURU"</span>
    <div class="tw"><h2 class="sc-name n19">GiGO 様「うるちゅるポップシール」</h2></div>
-   <p class="sc-cat">アミューズメント／公式アカウント × インフルエンサーの相互連動</p>
+   <p class="sc-cat">アミューズメント／公式×インフルエンサーの相互連動</p>
    <p class="sc-copy">同じ商品、同じ公式アカウント。<br>連携の有無で、<br class="sp">届く数は<span class="fude">3.4倍</span>変わった。</p>
   </div>
   <div class="e-rows rv">
@@ -408,7 +456,7 @@ img{max-width:100%}
    <div><i>成果</i><p>第3弾は合計<b>約176.8万再生</b>。当社制作の公式リールは合計約51万再生（登場決定リール単体33.9万）。第1弾は約67.5万インプレッション。</p></div>
   </div>
 <div class="schemewrap rv dk"><p class="sch-k">SCHEME ─ 施策の全体像</p><div class="scheme"><div class="snode"><span class="schip"><img src="assets/logo_gigo.jpg" alt="GiGO"></span><span class="nl">GiGO 様<small>うるちゅるポップシール</small></span></div><div class="sarrow"><span class="al">企画・制作</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="schip hub"><b>TONE PALETTE</b><span class="sch-dots"><i></i><i></i><i></i><i></i></span></span><span class="nl">公式コンテンツも当社制作<small>データ管理・継続起用</small></span></div><div class="sarrow duo"><span class="al">相互連動</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="ifclu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4.5 20c1.6-3.6 4.3-5.2 7.5-5.2s5.9 1.6 7.5 5.2"/></svg><span class="more">×14</span></span><span class="nl">シール系インフルエンサー<small>公式=起点／連携=拡散</small></span></div><div class="sarrow"><span class="al">投稿</span><span class="fd"></span></div><div class="snode"><span class="pfrow"><span class="pfc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle class="igdot" cx="17.2" cy="6.8" r="1.3"/></svg>Instagram</span><span class="pfc">TikTok</span></span><span class="nl">プラットフォーム</span></div><div class="sarrow"><span class="al">拡散</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="sreach"><b>約176.8万</b><span>再生 ─ 第3弾</span></span><span class="nl">3期連続リピート</span></div></div></div>
-  <div class="shot uru rv"><img src="assets/phones_uru.jpg" alt="うるちゅるポップシール 公式Instagram投稿" loading="lazy"><p class="shotcap">実際の公式アカウントのスクリーンショットです</p></div>
+  <div class="shot uru rv"><img src="assets/phones_uru.jpg" alt="うるちゅるポップシール 公式Instagram投稿" loading="lazy"><p class="shotcap">実際の公式アカウントの画面です</p></div>
   <div class="uirow rv">
    <div class="ui"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><b><span class="cnt" data-to="13574">0</span></b><small>いいね</small></div>
    <div class="ui"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><b><span class="cnt" data-to="3150">0</span></b><small>保存</small></div>
@@ -470,82 +518,85 @@ img{max-width:100%}
    <div><i>成果</i><p>運用開始1ヶ月で<b>300万人リーチ</b>・フォロワー0→7,000人超。渋谷区シーシャカフェアカウントNo.1。</p></div>
   </div>
 <div class="schemewrap rv dk"><p class="sch-k">SCHEME ─ 施策の全体像</p><div class="scheme"><div class="snode"><span class="schip"><img src="assets/logo_bk.jpg" alt="BELLKISH TOKYO"></span><span class="nl">BELLKISH TOKYO 様<small>渋谷・シーシャカフェ</small></span></div><div class="sarrow"><span class="al">運用設計</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="schip hub"><b>TONE PALETTE</b><span class="sch-dots"><i></i><i></i><i></i><i></i></span></span><span class="nl">ポジショニング設計<small>OPEN前から運用</small></span></div><div class="sarrow"><span class="al">投稿・運用</span><span class="fd"></span></div><div class="snode"><span class="pfrow"><span class="pfc"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle class="igdot" cx="17.2" cy="6.8" r="1.3"/></svg>Instagram</span></span><span class="nl">@bellkishtokyo_shibuya</span></div><div class="sarrow"><span class="al">渋谷エリアへ</span><span class="fd"></span><span class="fd f2"></span></div><div class="snode"><span class="sreach"><b>300万人</b><span>リーチ ─ 1ヶ月</span></span><span class="nl">フォロワー0→7,000人超</span></div></div></div>
-  <div class="shot bk rv"><img src="assets/phones_bk.jpg" alt="BELLKISH TOKYO 公式Instagram" loading="lazy"><p class="shotcap">実際の公式アカウントのスクリーンショットです</p></div>
+  <div class="shot bk rv"><img src="assets/phones_bk.jpg" alt="BELLKISH TOKYO 公式Instagram" loading="lazy"><p class="shotcap">実際の公式アカウントの画面です</p></div>
   <div class="plinks rv"><a href="https://www.instagram.com/bellkishtokyo_shibuya/" target="_blank" rel="noopener">@bellkishtokyo_shibuya</a><a href="https://www.instagram.com/reel/DPGpmOhkvTF/" target="_blank" rel="noopener" data-ig="DPGpmOhkvTF">オープン期のリールを見る</a></div>
  </div>
 </section>
 
 <!-- ===== PART 2 明転ギャラリー（60カード・白） ===== -->
 <div class="gsec" id="gallery"><div class="wrap">
-<div class="sec-h"><span class="eb">PART 2 — CREATIVE GALLERY</span><h2>制作クリエイティブ</h2><p>企画・撮影・編集まで一貫制作した、実物のクリエイティブ（全58件配置済み・カバー画像は順次差し替え）</p></div>
+<div class="sec-h"><span class="eb">PART 2 — CREATIVE GALLERY</span><h2>制作クリエイティブ</h2><p class="gcount">全62件・すべて実際の投稿にリンクしています</p><p>企画・撮影・編集まで一貫制作しています。制作物はSNS上のPRにとどまらず、そのクオリティから店頭看板や公式サイトへの転用も生まれています。</p></div>
 <div class="gtabs"><button class="on" data-cat="all">すべて</button><button data-cat="ip">IPコラボ</button><button data-cat="uru">うるちゅる</button><button data-cat="shop">店舗・施設</button><button data-cat="beauty">ビューティー</button></div>
 <div class="ggrid">
- <a class="gcard" data-cat="ip" data-ig="DbFF-zFllMx" href="https://www.instagram.com/p/DbFF-zFllMx/" target="_blank" rel="noopener"><img src="assets/ip_DbFF-zFllMx.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>海外映画IPコラボ景品</span></a>
- <a class="gcard" data-cat="ip" data-ig="DbSnpXYgb6y" href="https://www.instagram.com/p/DbSnpXYgb6y/" target="_blank" rel="noopener"><img src="assets/ip_DbSnpXYgb6y.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>海外キャラクターIPコラボ景品</span></a>
- <a class="gcard" data-cat="ip" data-ig="DWWF9hUzNWe" href="https://www.instagram.com/reel/DWWF9hUzNWe/" target="_blank" rel="noopener"><img src="assets/ip_DWWF9hUzNWe.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>人気恋愛番組コラボ企画</span></a>
- <a class="gcard" data-cat="ip" data-ig="DbvBig8lErL" href="https://www.instagram.com/p/DbvBig8lErL/" target="_blank" rel="noopener"><img src="assets/ip_DbvBig8lErL.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DbFF-zFllMx" href="https://www.instagram.com/p/DbFF-zFllMx/" target="_blank" rel="noopener"><img src="assets/g_DbFF-zFllMx.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>海外映画IPコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DbSnpXYgb6y" href="https://www.instagram.com/p/DbSnpXYgb6y/" target="_blank" rel="noopener"><img src="assets/g_DbSnpXYgb6y.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>海外キャラクターIPコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DWWF9hUzNWe" href="https://www.instagram.com/reel/DWWF9hUzNWe/" target="_blank" rel="noopener"><img src="assets/g_DWWF9hUzNWe.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>人気恋愛番組コラボ企画</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DbvBig8lErL" href="https://www.instagram.com/p/DbvBig8lErL/" target="_blank" rel="noopener"><img src="assets/g_DbvBig8lErL.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
  <a class="gcard" data-cat="ip" data-ig="DXl6i0niCjD" href="https://www.instagram.com/reel/DXl6i0niCjD/" target="_blank" rel="noopener"><img src="assets/ip_DXl6i0niCjD.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>海外キャラクターIPコラボ景品</span></a>
- <a class="gcard" data-cat="ip" data-ig="DbVKujNnJbR" href="https://www.instagram.com/p/DbVKujNnJbR/" target="_blank" rel="noopener"><img src="assets/ip_DbVKujNnJbR.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
- <a class="gcard" data-cat="ip" data-ig="DbxfkrcDNo0" href="https://www.instagram.com/p/DbxfkrcDNo0/" target="_blank" rel="noopener"><img src="assets/ip_DbxfkrcDNo0.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DTuuPc7AGdl" href="https://www.instagram.com/p/DTuuPc7AGdl/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXbno6ToLkV" href="https://www.instagram.com/p/DXbno6ToLkV/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DU-i2p0DwGD" href="https://www.instagram.com/p/DU-i2p0DwGD/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DU7-doID7wh" href="https://www.instagram.com/p/DU7-doID7wh/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DU7-JpCD07P" href="https://www.instagram.com/p/DU7-JpCD07P/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DU5c6GgAUoB" href="https://www.instagram.com/p/DU5c6GgAUoB/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DUz-lNEldxq" href="https://www.instagram.com/p/DUz-lNEldxq/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DT3vTeGE3e_" href="https://www.instagram.com/p/DT3vTeGE3e_/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DT2d9bFji6B" href="https://www.instagram.com/p/DT2d9bFji6B/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DT1DiRylLQF" href="https://www.instagram.com/p/DT1DiRylLQF/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DT0GdOnk3WB" href="https://www.instagram.com/p/DT0GdOnk3WB/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DTj4vVlFDte" href="https://www.instagram.com/p/DTj4vVlFDte/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXY4U6ZlXkB" href="https://www.instagram.com/p/DXY4U6ZlXkB/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXof9LKF-2y" href="https://www.instagram.com/p/DXof9LKF-2y/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXon9Y5jDlX" href="https://www.instagram.com/p/DXon9Y5jDlX/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXqQtgjHFpw" href="https://www.instagram.com/p/DXqQtgjHFpw/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXsWgV4ToWD" href="https://www.instagram.com/p/DXsWgV4ToWD/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic uru" data-cat="uru" data-ig="DXtpII4DEVc" href="https://www.instagram.com/p/DXtpII4DEVc/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="Db0OBKIDyzn" href="https://www.instagram.com/p/Db0OBKIDyzn/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="Db4lYkJvYri" href="https://www.instagram.com/p/Db4lYkJvYri/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="Db2HOXBvj2e" href="https://www.instagram.com/p/Db2HOXBvj2e/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DZmqXjGgYfk" href="https://www.instagram.com/p/DZmqXjGgYfk/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DZrz7P2jbRV" href="https://www.instagram.com/p/DZrz7P2jbRV/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DXyynoDk5nD" href="https://www.instagram.com/p/DXyynoDk5nD/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大型アニメIPコラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DXyyoU7HGuH" href="https://www.instagram.com/p/DXyyoU7HGuH/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大型アニメIPコラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DR69WEYj7Nb" href="https://www.instagram.com/p/DR69WEYj7Nb/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DTP5mojjXO4" href="https://www.instagram.com/p/DTP5mojjXO4/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DTP7k6Ska5I" href="https://www.instagram.com/p/DTP7k6Ska5I/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DTP7FfTCCOg" href="https://www.instagram.com/p/DTP7FfTCCOg/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="Dam0nPuD-Uu" href="https://www.instagram.com/p/Dam0nPuD-Uu/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="Dbkgp-aDz3M" href="https://www.instagram.com/p/Dbkgp-aDz3M/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DSdnQ2CEylk" href="https://www.instagram.com/p/DSdnQ2CEylk/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="DSJcYSmExJM" href="https://www.instagram.com/p/DSJcYSmExJM/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
- <a class="gcard nopic" data-cat="ip" data-ig="mqclub" href="https://www.instagram.com/genda_gigo/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DUZbqQekyNQ" href="https://www.instagram.com/p/DUZbqQekyNQ/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>コスメブランドコラボ景品</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DWd0W_YDmx6" href="https://www.instagram.com/p/DWd0W_YDmx6/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>新店舗オープン企画</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DSuWZ4lj-K-" href="https://www.instagram.com/p/DSuWZ4lj-K-/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>GiGO 様</small>新店舗オープン企画</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DPtQyp_Enkj" href="https://www.instagram.com/p/DPtQyp_Enkj/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DPGpmOhkvTF" href="https://www.instagram.com/reel/DPGpmOhkvTF/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DPEDfxfEqq-" href="https://www.instagram.com/p/DPEDfxfEqq-/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DON_AOCkuEQ" href="https://www.instagram.com/p/DON_AOCkuEQ/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DOTN0LskprD" href="https://www.instagram.com/p/DOTN0LskprD/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DOa_FKMkmJ7" href="https://www.instagram.com/p/DOa_FKMkmJ7/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DVf9CrXEUNP" href="https://www.instagram.com/p/DVf9CrXEUNP/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DUF0qoYj9Zn" href="https://www.instagram.com/p/DUF0qoYj9Zn/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DU8G3bsCRn2" href="https://www.instagram.com/p/DU8G3bsCRn2/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
- <a class="gcard nopic shop" data-cat="shop" data-ig="DUc4d2mkU7k" href="https://www.instagram.com/p/DUc4d2mkU7k/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DYrbs0cNHqL" href="https://www.instagram.com/reel/DYrbs0cNHqL/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DZzj-yBThgX" href="https://www.instagram.com/reel/DZzj-yBThgX/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DaNVBN5Metx" href="https://www.instagram.com/reel/DaNVBN5Metx/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="Da0F8qrk7M3" href="https://www.instagram.com/p/Da0F8qrk7M3/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DaXpYVTEyRT" href="https://www.instagram.com/p/DaXpYVTEyRT/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
- <a class="gcard nopic beauty" data-cat="beauty" data-ig="DZueZRqE0qg" href="https://www.instagram.com/p/DZueZRqE0qg/" target="_blank" rel="noopener"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DbVKujNnJbR" href="https://www.instagram.com/p/DbVKujNnJbR/" target="_blank" rel="noopener"><img src="assets/g_DbVKujNnJbR.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DbxfkrcDNo0" href="https://www.instagram.com/p/DbxfkrcDNo0/" target="_blank" rel="noopener"><img src="assets/g_DbxfkrcDNo0.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DTuuPc7AGdl" href="https://www.instagram.com/p/DTuuPc7AGdl/" target="_blank" rel="noopener"><img src="assets/g_DTuuPc7AGdl.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXbno6ToLkV" href="https://www.instagram.com/p/DXbno6ToLkV/" target="_blank" rel="noopener"><img src="assets/g_DXbno6ToLkV.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DU-i2p0DwGD" href="https://www.instagram.com/p/DU-i2p0DwGD/" target="_blank" rel="noopener"><img src="assets/g_DU-i2p0DwGD.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DU7-doID7wh" href="https://www.instagram.com/p/DU7-doID7wh/" target="_blank" rel="noopener"><img src="assets/g_DU7-doID7wh.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DU7-JpCD07P" href="https://www.instagram.com/p/DU7-JpCD07P/" target="_blank" rel="noopener"><img src="assets/g_DU7-JpCD07P.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DU5c6GgAUoB" href="https://www.instagram.com/p/DU5c6GgAUoB/" target="_blank" rel="noopener"><img src="assets/g_DU5c6GgAUoB.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DUz-lNEldxq" href="https://www.instagram.com/p/DUz-lNEldxq/" target="_blank" rel="noopener"><img src="assets/g_DUz-lNEldxq.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DT3vTeGE3e_" href="https://www.instagram.com/p/DT3vTeGE3e_/" target="_blank" rel="noopener"><img src="assets/g_DT3vTeGE3e_.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DT2d9bFji6B" href="https://www.instagram.com/p/DT2d9bFji6B/" target="_blank" rel="noopener"><img src="assets/g_DT2d9bFji6B.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DT1DiRylLQF" href="https://www.instagram.com/p/DT1DiRylLQF/" target="_blank" rel="noopener"><img src="assets/g_DT1DiRylLQF.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DT0GdOnk3WB" href="https://www.instagram.com/p/DT0GdOnk3WB/" target="_blank" rel="noopener"><img src="assets/g_DT0GdOnk3WB.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DTj4vVlFDte" href="https://www.instagram.com/p/DTj4vVlFDte/" target="_blank" rel="noopener"><img src="assets/g_DTj4vVlFDte.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXY4U6ZlXkB" href="https://www.instagram.com/p/DXY4U6ZlXkB/" target="_blank" rel="noopener"><img src="assets/g_DXY4U6ZlXkB.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXof9LKF-2y" href="https://www.instagram.com/p/DXof9LKF-2y/" target="_blank" rel="noopener"><img src="assets/g_DXof9LKF-2y.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXon9Y5jDlX" href="https://www.instagram.com/p/DXon9Y5jDlX/" target="_blank" rel="noopener"><img src="assets/g_DXon9Y5jDlX.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXqQtgjHFpw" href="https://www.instagram.com/p/DXqQtgjHFpw/" target="_blank" rel="noopener"><img src="assets/g_DXqQtgjHFpw.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXsWgV4ToWD" href="https://www.instagram.com/p/DXsWgV4ToWD/" target="_blank" rel="noopener"><img src="assets/g_DXsWgV4ToWD.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="uru" data-ig="DXtpII4DEVc" href="https://www.instagram.com/p/DXtpII4DEVc/" target="_blank" rel="noopener"><img src="assets/g_DXtpII4DEVc.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>うるちゅるポップシール</span></a>
+ <a class="gcard" data-cat="ip" data-ig="Db0OBKIDyzn" href="https://www.instagram.com/p/Db0OBKIDyzn/" target="_blank" rel="noopener"><img src="assets/g_Db0OBKIDyzn.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="Db4lYkJvYri" href="https://www.instagram.com/p/Db4lYkJvYri/" target="_blank" rel="noopener"><img src="assets/g_Db4lYkJvYri.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="Db2HOXBvj2e" href="https://www.instagram.com/p/Db2HOXBvj2e/" target="_blank" rel="noopener"><img src="assets/g_Db2HOXBvj2e.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>沖縄有名ブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DZmqXjGgYfk" href="https://www.instagram.com/p/DZmqXjGgYfk/" target="_blank" rel="noopener"><img src="assets/g_DZmqXjGgYfk.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DZrz7P2jbRV" href="https://www.instagram.com/p/DZrz7P2jbRV/" target="_blank" rel="noopener"><img src="assets/g_DZrz7P2jbRV.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>アパレルブランドコラボ企画</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DXyynoDk5nD" href="https://www.instagram.com/p/DXyynoDk5nD/" target="_blank" rel="noopener"><img src="assets/g_DXyynoDk5nD.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大型アニメIPコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DXyyoU7HGuH" href="https://www.instagram.com/p/DXyyoU7HGuH/" target="_blank" rel="noopener"><img src="assets/g_DXyyoU7HGuH.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大型アニメIPコラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DR69WEYj7Nb" href="https://www.instagram.com/p/DR69WEYj7Nb/" target="_blank" rel="noopener"><img src="assets/g_DR69WEYj7Nb.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DTP5mojjXO4" href="https://www.instagram.com/p/DTP5mojjXO4/" target="_blank" rel="noopener"><img src="assets/g_DTP5mojjXO4.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DTP7k6Ska5I" href="https://www.instagram.com/p/DTP7k6Ska5I/" target="_blank" rel="noopener"><img src="assets/g_DTP7k6Ska5I.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DTP7FfTCCOg" href="https://www.instagram.com/p/DTP7FfTCCOg/" target="_blank" rel="noopener"><img src="assets/g_DTP7FfTCCOg.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手芸能事務所コラボ景品</span></a>
+ <a class="gcard" data-cat="ip" data-ig="Dam0nPuD-Uu" href="https://www.instagram.com/p/Dam0nPuD-Uu/" target="_blank" rel="noopener"><img src="assets/g_Dam0nPuD-Uu.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
+ <a class="gcard" data-cat="ip" data-ig="Dbkgp-aDz3M" href="https://www.instagram.com/p/Dbkgp-aDz3M/" target="_blank" rel="noopener"><img src="assets/g_Dbkgp-aDz3M.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DSdnQ2CEylk" href="https://www.instagram.com/p/DSdnQ2CEylk/" target="_blank" rel="noopener"><img src="assets/g_DSdnQ2CEylk.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
+ <a class="gcard" data-cat="ip" data-ig="DSJcYSmExJM" href="https://www.instagram.com/p/DSJcYSmExJM/" target="_blank" rel="noopener"><img src="assets/g_DSJcYSmExJM.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>大手飲料・食品ブランドコラボ</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DUZbqQekyNQ" href="https://www.instagram.com/p/DUZbqQekyNQ/" target="_blank" rel="noopener"><img src="assets/g_DUZbqQekyNQ.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>コスメブランドコラボ景品</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DWd0W_YDmx6" href="https://www.instagram.com/p/DWd0W_YDmx6/" target="_blank" rel="noopener"><img src="assets/g_DWd0W_YDmx6.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>新店舗オープン企画</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DSuWZ4lj-K-" href="https://www.instagram.com/p/DSuWZ4lj-K-/" target="_blank" rel="noopener"><img src="assets/g_DSuWZ4lj-K-.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>GiGO 様</small>新店舗オープン企画</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DPtQyp_Enkj" href="https://www.instagram.com/p/DPtQyp_Enkj/" target="_blank" rel="noopener"><img src="assets/g_DPtQyp_Enkj.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DPGpmOhkvTF" href="https://www.instagram.com/reel/DPGpmOhkvTF/" target="_blank" rel="noopener"><img src="assets/g_DPGpmOhkvTF.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DPEDfxfEqq-" href="https://www.instagram.com/p/DPEDfxfEqq-/" target="_blank" rel="noopener"><img src="assets/g_DPEDfxfEqq-.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DON_AOCkuEQ" href="https://www.instagram.com/p/DON_AOCkuEQ/" target="_blank" rel="noopener"><img src="assets/g_DON_AOCkuEQ.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DOTN0LskprD" href="https://www.instagram.com/p/DOTN0LskprD/" target="_blank" rel="noopener"><img src="assets/g_DOTN0LskprD.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DOa_FKMkmJ7" href="https://www.instagram.com/p/DOa_FKMkmJ7/" target="_blank" rel="noopener"><img src="assets/g_DOa_FKMkmJ7.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>BELLKISH TOKYO 様</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DVf9CrXEUNP" href="https://www.instagram.com/p/DVf9CrXEUNP/" target="_blank" rel="noopener"><img src="assets/g_DVf9CrXEUNP.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DUF0qoYj9Zn" href="https://www.instagram.com/p/DUF0qoYj9Zn/" target="_blank" rel="noopener"><img src="assets/g_DUF0qoYj9Zn.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DU8G3bsCRn2" href="https://www.instagram.com/p/DU8G3bsCRn2/" target="_blank" rel="noopener"><img src="assets/g_DU8G3bsCRn2.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DUc4d2mkU7k" href="https://www.instagram.com/p/DUc4d2mkU7k/" target="_blank" rel="noopener"><img src="assets/g_DUc4d2mkU7k.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>カフェ業態</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DYrbs0cNHqL" href="https://www.instagram.com/reel/DYrbs0cNHqL/" target="_blank" rel="noopener"><img src="assets/g_DYrbs0cNHqL.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DZzj-yBThgX" href="https://www.instagram.com/reel/DZzj-yBThgX/" target="_blank" rel="noopener"><img src="assets/g_DZzj-yBThgX.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DaNVBN5Metx" href="https://www.instagram.com/reel/DaNVBN5Metx/" target="_blank" rel="noopener"><img src="assets/g_DaNVBN5Metx.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="Da0F8qrk7M3" href="https://www.instagram.com/p/Da0F8qrk7M3/" target="_blank" rel="noopener"><img src="assets/g_Da0F8qrk7M3.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DaXpYVTEyRT" href="https://www.instagram.com/p/DaXpYVTEyRT/" target="_blank" rel="noopener"><img src="assets/g_DaXpYVTEyRT.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="beauty" data-ig="DZueZRqE0qg" href="https://www.instagram.com/p/DZueZRqE0qg/" target="_blank" rel="noopener"><img src="assets/g_DZueZRqE0qg.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>コスメブランド</small>公式アカウント運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DS4qLcaDz86" href="https://www.instagram.com/reel/DS4qLcaDz86/" target="_blank" rel="noopener"><img src="assets/g_DS4qLcaDz86.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>VSING 様</small>新業態の立ち上げ運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DSAFgxGjzNZ" href="https://www.instagram.com/reel/DSAFgxGjzNZ/" target="_blank" rel="noopener"><img src="assets/g_DSAFgxGjzNZ.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>VSING 様</small>新業態の立ち上げ運用</span></a>
+ <a class="gcard" data-cat="shop" data-ig="DNVM9ZDPQL6" href="https://www.instagram.com/reel/DNVM9ZDPQL6/" target="_blank" rel="noopener"><img src="assets/g_DNVM9ZDPQL6.jpg" alt="" loading="lazy"><span class="play"></span><span class="gl"><small>VSING 様</small>新業態の立ち上げ運用</span></a>
 </div>
 </div></div>
 
 <!-- ═══════ FOOTER ═══════ -->
 
 <div class="ftr">DESIGN PROTOTYPE v6</div>
+<div id="igmodal" aria-hidden="true"><div class="mbox"><button class="mclose" aria-label="閉じる">&times;</button><div class="mload">読み込み中…</div><a class="mopen" target="_blank" rel="noopener">Instagramで開く &#8599;</a></div></div>
 <nav class="vswitch"><a href="works_v5a.html">5A</a><a href="works_v5b.html">5B</a><a href="works_v5c.html">5C</a><a class="cur" href="works_v6.html">6</a></nav>
 
 <script>
@@ -580,5 +631,32 @@ if(PHASE2_EMBED){
     a.replaceWith(d);
   });
 }
+
+/* 投稿モーダル: カバーをクリック→同ページ内でInstagram公式埋め込みを再生（外部リンクは新規タブのまま） */
+(function(){
+  var md=document.getElementById('igmodal'), box=md.querySelector('.mbox'),
+      load=md.querySelector('.mload'), open=md.querySelector('.mopen'), done={};
+  function close(){md.classList.remove('show');setTimeout(function(){md.classList.remove('on');load.innerHTML='読み込み中…';var q=box.querySelector('blockquote,iframe');if(q)q.remove()},300)}
+  md.addEventListener('click',function(e){if(e.target===md||e.target.classList.contains('mclose'))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  document.querySelectorAll('a.gcard[data-ig]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(e.metaKey||e.ctrlKey||e.shiftKey)return;
+      e.preventDefault();
+      open.href=a.href;
+      md.classList.add('on');requestAnimationFrame(function(){md.classList.add('show')});
+      var bq=document.createElement('blockquote');
+      bq.className='instagram-media';bq.setAttribute('data-instgrm-permalink',a.href);
+      bq.setAttribute('data-instgrm-version','14');
+      box.insertBefore(bq,open);
+      function proc(){if(window.instgrm){window.instgrm.Embeds.process();load.style.display='none';return true}return false}
+      if(!proc()){
+        if(!done.js){done.js=1;var sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc)}
+        var t=setInterval(function(){if(proc())clearInterval(t)},250);
+        setTimeout(function(){clearInterval(t);if(load.style.display!=='none')load.innerHTML='この投稿はページ内で再生できませんでした。<br>下のリンクからご覧ください。'},6000);
+      }
+    });
+  });
+})();
 </script>
 </body></html>
